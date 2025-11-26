@@ -27,3 +27,18 @@ int main() {
 
     return 0;
 }    
+
+int menuSelection() { 
+    int selection; 
+    do { 
+    cout << "Select Action" <, endl;
+    cout << "1. Insert new code" << endl
+         << "2. Delete a code" << endl 
+         << "3. Search for code" << endl 
+         << "4. Modify a code" << endl 
+         << "5. Display Tree in postorder" << endl 
+         << "6. Quit" << endl; 
+    cin >> "Enter choice: "; 
+    } while (selection != 6); 
+    return selection; 
+}
