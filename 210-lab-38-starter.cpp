@@ -25,9 +25,10 @@ int main() {
     }
 
     cout << "Outputing tree in postorder" << endl; 
-    tree.displayPostOrder(); 
+    tree.displayPostOrder();
 
     while (selection != 6) { 
+        cout << endl;
         menuSelection(); 
         cout << "Selection -> ";
         cin >> selection; 
@@ -45,11 +46,23 @@ int main() {
             string searchCode; 
             cout << "Enter a code to search: "; 
             cin >> searchCode; 
-            tree.searchNode(searchCode); 
-        } else if (selection == 4) { 
             
+            if(tree.searchNode(searchCode)) { 
+                cout << "Searched code was found in the tree" << endl; 
+            } else { 
+                cout << "Searched code was not found in the tree" << endl; 
+            }
+            
+        } else if (selection == 4) { 
+            string originalCode, newCode; 
+            cout << "Enter code to Modify: "; 
+            cin >> originalCode; 
+            cout << "Enter new code value: ";
+            cin >> newCode; 
+            tree.remove(originalCode);
+            tree.insertNode(newCode);
         } else if (selection == 5) { 
-        
+            tree.displayPostOrder();
         }
     }
 
