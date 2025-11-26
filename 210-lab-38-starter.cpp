@@ -37,11 +37,17 @@ int main() {
             cout << "Enter code to add to tree: "; 
             cin >> newCode; 
             tree.insertNode(newCode); 
+            cout << "Code was added to tree"; 
         } else if (selection == 2) {
             string delCode; 
             cout << "Enter a code to delete: "; 
             cin >> delCode; 
-            tree.remove(delCode); 
+            if(tree.searchNode(delCode)) { 
+                tree.remove(delCode);
+                cout << "Code deleted from tree"; 
+            } else { 
+                cout << "Code was not found in the tree"; 
+            }
         } else if (selection == 3) { 
             string searchCode; 
             cout << "Enter a code to search: "; 
@@ -52,15 +58,18 @@ int main() {
             } else { 
                 cout << "Searched code was not found in the tree" << endl; 
             }
-            
         } else if (selection == 4) { 
             string originalCode, newCode; 
             cout << "Enter code to Modify: "; 
             cin >> originalCode; 
             cout << "Enter new code value: ";
             cin >> newCode; 
-            tree.remove(originalCode);
-            tree.insertNode(newCode);
+            if(tree.searchNode(originalCode)) { 
+                tree.remove(originalCode);
+                tree.insertNode(newCode);
+            } else {
+                cout << "Code to modify was not found in the tree" << endl; 
+            }
         } else if (selection == 5) { 
             tree.displayPostOrder();
         }
